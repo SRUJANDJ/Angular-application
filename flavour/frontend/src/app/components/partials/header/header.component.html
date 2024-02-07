@@ -1,0 +1,25 @@
+<header>
+    <div class="container">
+        <a routerLink="/" class="logo">Flavours <i class="fas fa-utensils"></i></a>
+        <nav>
+            <ul>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/login">Login</a>
+                </li>
+                <li *ngIf="isAuth" class="menu-container">
+                    <a> <i class="fas fa-user"></i> {{user.name|titlecase}}</a>
+                    <div class="menu">
+                        <a routerLink="/profile">Profile</a>
+                        <a routerLink="/checkout">Orders</a>
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                </li>
+                <li>
+                    <a *ngIf="isAuth" routerLink="/cart-page">
+                        <i class="fas fa-shopping-cart"></i> <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
